@@ -12,7 +12,6 @@ var appInventario = new Vue({
     },
     methods: {
         //BOTONES
-
         btnNuevo: async function () {
             const { value: formValues } = await Swal.fire({
                 title: "Nuevo Producto",
@@ -31,7 +30,6 @@ var appInventario = new Vue({
                 `,
                 focusConfirm: false,
                 showCancelButton: true,
-                // cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Guardar',
                 confirmButtonColor: '#3085d6',
                 preConfirm: () => {
@@ -52,7 +50,6 @@ var appInventario = new Vue({
             }
             else {
                 this.nuevoProducto();
-
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
@@ -105,6 +102,7 @@ var appInventario = new Vue({
                 title: 'Estas Seguro de eliminar el producto: ' + nombre + '?',
                 type: 'warning',
                 showCancelButton: true,
+                cancelButtonColor: '#FF2D00',
                 confirmButtonColor: '#3085d6',
                 cancelButtonTest: 'Borrar'
             }).then((result) => {
@@ -126,7 +124,6 @@ var appInventario = new Vue({
                 // console.log(this.productos);
             });
         },
-
         // Agregar Nuevo
         nuevoProducto: function(){
             axios.post(url,{opcion:1, nombre:this.nombre, sku:this.sku, stock:this.stock, valor:this.valor}).then(response =>{
@@ -138,7 +135,6 @@ var appInventario = new Vue({
             this.valor= 0;
         },
         // Editar
-
         editarProducto:function(id, nombre, sku, stock, valor){
             axios.post(url,{opcion:2,id:id, nombre:nombre, sku:sku, stock:stock, valor:valor}).then(response =>{
                 this.listarProductos();
@@ -150,7 +146,6 @@ var appInventario = new Vue({
                 this.listarProductos();
             });
         }
-
     },
     created: function () {
         this.listarProductos();
@@ -164,5 +159,4 @@ var appInventario = new Vue({
             return this.total;
         }
     }
-
 });

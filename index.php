@@ -19,14 +19,17 @@
         <div class="container">
             <div class="row">
                 <div class="col text-start">
-                <button @click="btnNuevo" class="btn btn-success" title="Nuevo"><i class="fas fa-plus-circle fa-2x"></i></button>
+                    <!-- boton nuevo producto -->
+                    <button @click="btnNuevo" class="btn btn-success" title="Nuevo"><i class="fas fa-plus-circle fa-2x"></i></button>
                 </div>
                 <div class="col text-end">
+                    <!-- contador total stock -->
                     <h5> Stock Total: <span class="badge bg-success">{{totalStock}}</span></h5>
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-lg-12 table-responsive">
+                    <!-- tabla productos -->
                     <table class="table table-striped">
                         <thead>
                             <tr class="table-primary">
@@ -50,6 +53,7 @@
                                 </td>
                                 <td>{{producto.valor}}</td>
                                 <td>
+                                    <!-- botones eliminar y editar -->
                                     <div class="btn-group" role="group">
                                         <button class="btn btn-secondary" title="Editar" @click="btnEditar(producto.id, 
                                         producto.nombre, producto.sku, producto.stock, producto.valor)">
